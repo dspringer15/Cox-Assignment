@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Desmond's Assignment</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/assignment_styling.css">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+
+<body>
+
+    <center>
+        <!-- Greet user by telling them what you would like for them to do. -->
+        
+        <h1>Please pick the time slot that you would like for you appointment.</h1>
+
+        <div ng-app="myApp" ng-controller="myCtrl">
+
+            <!-- Create dropdown for time slots.  -->
+
+            <select id="timeSelector" ng-model="timeSelector" >
+                <option ng-repeat="x in times" value="{{x.time}}">{{x.time}}</option>
+            </select>
+
+            <!-- Submit time to modal popup. -->
+            <div class="trigger">
+                </br><button onclick=modal-content>Submit</button>
+            </div>
+
+            <p class="disclaimer">* If the selected time shows as red, that means it is no longer available.</p>
+
+            <!-- Create modal and it's content. -->
+            <div class="modal">
+
+                <form id="apptForm">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>The time slot you've chosen is {{timeSelector}}!</h3>
+                    <p>Now we will get some information to complete set your appointment.</p>
+
+                    <!-- Labels and input boxes for user input.  -->
+                    <p>Enter your name: </p>
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="formName" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="formName"></label>
+                    <p>Enter your number: </p>
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="tel" id="formNumber" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="formNumber"></label>
+                    <div class="bookTrigger">
+                        </br><button type="button"  onclick="Choice()">Book It!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/app_javascript.js"></script>
+    </center>
+
+
+</body>
+
+</html>
