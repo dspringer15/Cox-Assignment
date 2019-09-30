@@ -17,11 +17,11 @@
         
         <h1>Please pick the time slot that you would like for you appointment.</h1>
 
-        <div ng-app="myApp" ng-controller="myCtrl">
+        <div ng-app="apptApp" ng-controller="apptCtrl">
 
             <!-- Create dropdown for time slots.  -->
 
-            <select id="timeSelector" ng-model="timeSelector" >
+            <select id="timeSelector" ng-model="timeSelector" size="8">
                 <option ng-repeat="x in times" value="{{x.time}}">{{x.time}}</option>
             </select>
 
@@ -38,7 +38,7 @@
                 <form id="apptForm">
                 <div class="modal-content">
                     <span class="close-button">&times;</span>
-                    <h3>The time slot you've chosen is {{timeSelector}}!</h3>
+                    <h3>The time slot you've chosen is {{timeSelector}}</h3>
                     <p>Now we will get some information to complete set your appointment.</p>
 
                     <!-- Labels and input boxes for user input.  -->
